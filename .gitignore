@@ -1,0 +1,4 @@
+# ignore file
+.vs/
+Debug/
+x64/
