@@ -1,6 +1,7 @@
 #include "Graphics.h"
-#include "imgui/imgui_impl_dx11.h"
+#include "imgui/imgui.h"
 #include "imgui/imgui_impl_win32.h"
+#include "imgui/imgui_impl_dx11.h"
 #include "Utils/Macro/WindowThrowMacro.h"
 
 namespace wrl = Microsoft::WRL;
@@ -130,6 +131,13 @@ void Graphics::EndFrame()
 	{
 		ImGui::Render();
 		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+		// Update and Render additional Platform Windows
+		ImGuiIO& io = ImGui::GetIO();
+		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+		{
+			ImGui::UpdatePlatformWindows();
+			ImGui::RenderPlatformWindowsDefault();
+		}
 	}
 
 	HRESULT hr;

@@ -4,16 +4,16 @@
 WindowApplication::WindowApplication(int left, int top, int width, int height)
 {
 	mainFrameWnd = std::make_shared<MainFrameWindow>(left, top, width, height,
-		"MainFrameWnd",
+		L"MainFrameWnd",
 		WS_OVERLAPPEDWINDOW);
 	
 	mainDX11Wnd = std::make_shared<DX11Window>(0/*left*/, /*top + */0, width * 0.7f, height,
-		"DX11Wnd", 
+		L"DX11Wnd", 
 		WS_CHILD | WS_VISIBLE, 
 		mainFrameWnd->GetHwnd());
 
 	rightWnd = std::make_shared<Window>(width * 0.7f, 0, width * 0.3f, height,
-		"RightWnd",
+		L"RightWnd",
 		WS_CHILD | WS_VISIBLE,
 		mainFrameWnd->GetHwnd());
 	//rightWnd->SetBackGroundColor(1.0f, 0.0f, 0.0f);

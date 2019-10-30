@@ -4,14 +4,14 @@
 class WindowClass
 {
 public:
-	static const char* GetName() noexcept;
+	static const wchar_t* GetName() noexcept;
 	static HINSTANCE GetInstance() noexcept;
 private:
 	WindowClass() noexcept;
 	~WindowClass();
 	WindowClass(const WindowClass&) = delete;
 	WindowClass& operator= (const WindowClass&) = delete;
-	static constexpr const char* wndClassName = "Rem DX11 Engine Window";
+	static constexpr const wchar_t* wndClassName = L"Rem DX11 Engine Window";
 	static WindowClass wndClass;
 	HINSTANCE hInstance;
 

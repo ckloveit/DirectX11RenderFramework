@@ -7,7 +7,7 @@ class DX11Window : public Window
 	friend class WindowApplication;
 
 public:
-	DX11Window(int left, int top, int width, int height, const char* name, DWORD windowStyle, HWND wndParent = NULL);
+	DX11Window(int left, int top, int width, int height, const wchar_t* name, DWORD windowStyle, HWND wndParent = NULL);
 	~DX11Window();
 	void Update(float deltaTime) override;
 	void Render(float deltaTime) override;
@@ -19,4 +19,8 @@ private:
 	DirectX::XMFLOAT3 backgroundColor;
 
 	std::unique_ptr<Graphics> pGfx;
+
+
+	bool show_demo_window = true;
+	bool show_another_window = false;
 };

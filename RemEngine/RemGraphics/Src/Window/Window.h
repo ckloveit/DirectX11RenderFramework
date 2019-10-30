@@ -7,7 +7,7 @@ class Window
 	friend class WindowClass;
 	friend class WindowApplication;
 public:
-	Window(int left, int top, int width, int height, const char* name, DWORD windowStyle, HWND wndParent = NULL);
+	Window(int left, int top, int width, int height, const wchar_t* name, DWORD windowStyle, HWND wndParent = NULL);
 	~Window();
 	Window(const Window&) = delete;
 	Window& operator=(const Window&) = delete;
@@ -24,7 +24,7 @@ protected:
 	virtual LRESULT HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
 
 public:
-	const char* name;
+	const wchar_t* name;
 	int width;
 	int height;
 	HWND hWnd;

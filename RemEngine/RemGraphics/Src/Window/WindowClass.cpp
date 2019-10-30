@@ -38,7 +38,7 @@ WindowClass::~WindowClass()
 	UnregisterClass(wndClassName, GetInstance());
 }
 
-const char* WindowClass::GetName() noexcept
+const wchar_t* WindowClass::GetName() noexcept
 {
 	return wndClassName;
 }

@@ -3,7 +3,7 @@
 #include "Utils/Macro/WindowThrowMacro.h"
 #include "imgui/imgui_impl_win32.h"
 
-Window::Window(int left,int top,int width, int height, const char* name, DWORD windowStyle, HWND wndParent /* = NULL*/)
+Window::Window(int left,int top,int width, int height, const wchar_t* name, DWORD windowStyle, HWND wndParent /* = NULL*/)
 	: width(width), height(height), name(name)
 {
 	// calculate window size based on desired client region size
@@ -47,8 +47,6 @@ void Window::Render(float deltaTime)
 
 
 }
-
-
 
 
 LRESULT Window::HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept
