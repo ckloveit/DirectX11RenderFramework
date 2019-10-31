@@ -4,7 +4,7 @@ int CALLBACK WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 {
 	try
 	{
-		WindowApplication(100, 20, 1600, 900).Run();
+		WindowApplication(0, 0, 1920, 1000).Run();
 	}
 	catch (const HrException& e)
 	{

@@ -6,6 +6,12 @@
 Window::Window(int left,int top,int width, int height, const wchar_t* name, DWORD windowStyle, HWND wndParent /* = NULL*/)
 	: width(width), height(height), name(name)
 {
+	// init relative scale
+	WndRelativeRatio.topRatio = 0.0f;
+	WndRelativeRatio.leftRatio = 0.0f;
+	WndRelativeRatio.heightRatio = 1.0f;
+	WndRelativeRatio.widthRatio = 1.0f;
+
 	// calculate window size based on desired client region size
 	RECT wr;
 	wr.left = left;
@@ -72,3 +78,10 @@ LRESULT Window::HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noe
 	return DefWindowProc(hWnd, msg, wParam, lParam);
 }
 
+
+RECT Window::GetWindowRect()
+{
+	RECT rc;
+	::GetClientRect(hWnd, &rc);
+	return rc;
+}

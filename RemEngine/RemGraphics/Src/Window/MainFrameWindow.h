@@ -15,4 +15,7 @@ public:
 protected:
 	virtual LRESULT HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept override;
 
+
+public:
+	std::vector<Window*> childWindows;
 };
