@@ -119,6 +119,7 @@ void Graphics::BeginFrame(float red, float green, float blue) noexcept
 	ImGui::NewFrame();
 
 	const float color[] = { red,green,blue,1.0f };
+	pImmediateContext->OMSetRenderTargets(1, pRTV.GetAddressOf(), pDSV.Get());
 	pImmediateContext->ClearRenderTargetView(pRTV.Get(), color);
 	pImmediateContext->ClearDepthStencilView(pDSV.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0u);
 }
