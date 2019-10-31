@@ -25,12 +25,17 @@ void DX11Window::Render(float deltaTime)
 
 	// 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
 	//if (show_demo_window)
+		/*ImGui::SetNextWindowPos(ImVec2(200, 0));
+		ImGui::SetNextWindowSize(ImVec2(100, 100));*/
 		ImGui::ShowDemoWindow(&show_demo_window);
 
 	// 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
 	{
 		static float f = 0.0f;
 		static int counter = 0;
+
+		ImGui::SetNextWindowPos(ImVec2(0, 0), ImGuiCond_FirstUseEver);
+		ImGui::SetNextWindowSize(ImVec2(100, 100), ImGuiCond_FirstUseEver);
 
 		ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 
@@ -53,6 +58,8 @@ void DX11Window::Render(float deltaTime)
 	// 3. Show another simple window.
 	//if (show_another_window)
 	{
+		ImGui::SetNextWindowPos(ImVec2(500, 0));
+		ImGui::SetNextWindowSize(ImVec2(100, 100));
 		ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
 		ImGui::Text("Hello from another window!");
 		if (ImGui::Button("Close Me"))
